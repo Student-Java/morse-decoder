@@ -37,7 +37,7 @@ const MORSE_TABLE = {
   '-----': '0',
 };
 
-const morseObj = () => {
+const getBinaryMorseTable = () => {
   let morse = {'**********': ' '};
   return Object.keys(MORSE_TABLE)
     .reduce((obj, key) => {
@@ -48,7 +48,7 @@ const morseObj = () => {
 };
 
 function decode(expr) {
-  let morseTable = morseObj();
+  let morseTable = getBinaryMorseTable();
   return expr
     .match(/.{1,10}/g)
     .map(str => morseTable[str])
